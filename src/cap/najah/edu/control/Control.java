@@ -35,7 +35,11 @@ public class Control {
     
 	public static void TypeUser(int type)
 	{
-	
+		if(type==1||type==2||type==3)
+		{
+		 Connection DataBase=InserInfoDataBase();
+		
+		 if(DataBase!=null) {
 		switch(type)
 		{
 		case 1:
@@ -49,7 +53,7 @@ public class Control {
 			System.out.println("Import File to DataBase '8'");
 			System.out.println("Take A SnapShoe of DataBase '9'");
 			System.out.println("Exit '10'");
-			Admin();
+			Admin(DataBase);
 			break;
 			   
         
@@ -61,7 +65,7 @@ public class Control {
 			System.out.println("Insert Data to Table '5'");
 			System.out.println("Exit '6'");
 			System.out.println("Enter The choice :");
-			Staff();
+			Staff(DataBase);
 			break;
 
   
@@ -72,10 +76,12 @@ public class Control {
 			System.out.println("Give Schema from Table '4'");
 			System.out.println("Exit '5'");
 			System.out.println("Enter The choice :");
-			Reader();
+			Reader(DataBase);
 			break;
 		 default:
 
+		}
+		 }
 		}
 	}
 	
@@ -109,11 +115,9 @@ public class Control {
 		
 	}
 	
-	public static void Admin() {
+	public static void Admin(Connection DataBase) {
 	
 		 ManagerFactory  managerFactory = new ManagerFactory();
-		 Connection DataBase=InserInfoDataBase();
-		 System.out.println("Enter The choice :");
 		 Scanner keyboard = new Scanner (System.in);
 		 boolean  exit =true;
 		 do {
@@ -189,12 +193,10 @@ public class Control {
 
 	}
 
-	private static void Staff() {
+	private static void Staff(Connection DataBase) {
 		
 		 ManagerFactory  managerFactory = new ManagerFactory();
-		 Connection DataBase=InserInfoDataBase(); 
 		 Scanner keyboard = new Scanner (System.in);
-		 System.out.println("Enter The choice :");			
 		 boolean  exit =true;
 		 do {
 			 System.out.println("Enter The choice :");
@@ -229,12 +231,10 @@ public class Control {
 	}
 
 	
-	private static void Reader() {
+	private static void Reader(Connection DataBase) {
 		
 		 ManagerFactory  managerFactory = new ManagerFactory();
-		 Connection DataBase=InserInfoDataBase();
 		 Scanner keyboard = new Scanner (System.in);
-		 System.out.println("Enter The choice :");			
 		 boolean  exit =true;
 		 do {
 			 System.out.println("Enter The choice :");
@@ -265,15 +265,23 @@ public class Control {
 	
 	
 	public static Connection InserInfoDataBase() {
-	   	 String userName="root";
-		 	  String pass="1111";
-			  String dbms="mysql";
-			  String serverName="localhost";
-			  String portNumber="3306";
+		      Scanner keyboard = new Scanner (System.in);
+		      System.out.println("Insert Information DataBase : ");
+	          System.out.println("Enter the root DataBase");
+	          String userName = keyboard.nextLine();
+	          System.out.println("Enter the Password DataBase:");
+	          String pass = keyboard.nextLine();
+
+	          System.out.println("Enter the Type DataBase ");
+			  String dbms=keyboard.nextLine();
+
+	          System.out.println("Enter the localhost");
+			  String serverName=keyboard.nextLine();
+	          System.out.println("Enter the Port Number Database");
+			  String portNumber=keyboard.nextLine();
 			  String email="email@email.com";
 			  
-			  InfoDataBase x 
-			= new InfoDataBase(userName,
+			  InfoDataBase ConnectionDataBase = new InfoDataBase(userName,
 					pass,
 					dbms, 
 					serverName,
