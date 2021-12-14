@@ -16,8 +16,8 @@ import cap.najah.edu.logger.Logger;
 public class JSONFile implements ImportFiles {
 
 	static Logger log;
-	private final static String PATHCSV="C:\\Users\\3bood\\Desktop\\Abdulsalam\\DataBaseManager\\json\\json.csv";
-	private final static String PATH ="C:\\Users\\3bood\\Desktop\\Abdulsalam\\DataBaseManager\\json";
+	private final static String PATHCSV="C:\\DataBaseManager\\json\\json.csv";
+	private final static String PATH ="C:\\DataBaseManager\\json";
 	  public static String readFileAsString(String file)throws Exception
 	    {
 	        return new String(Files.readAllBytes(Paths.get(file)));
